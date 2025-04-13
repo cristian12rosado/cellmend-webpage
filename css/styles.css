@@ -1,0 +1,203 @@
+/* 
+  STYLESHEET: styles.css
+  Feel free to modify the color scheme, typography, and layout to your liking.
+*/
+
+/* RESET/BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #ffffff;
+}
+
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004F2D;
+  padding: 1rem 2rem;
+}
+
+.navbar__logo a {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar__links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar__links a:hover {
+  color: #00E39F;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #004F2D, #0AC694);
+  color: #fff;
+  padding: 2rem;
+}
+
+.hero__content {
+  flex: 1 1 400px;
+  max-width: 600px;
+  margin-right: 2rem;
+}
+
+.hero__content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero__content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: #004F2D;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00E39F;
+  color: #004F2D;
+}
+
+.hero__image {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  max-width: 300px;  /* Constrain the container's maximum width */
+  margin: 0 auto;
+}
+
+.hero__image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* FEATURES SECTION */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 1200px;
+  gap: 2rem;
+}
+
+.feature-item {
+  flex: 1 1 250px;
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.feature-item .feature-icon {
+  width: 100px;    /* Adjust this width to suit your design */
+  height: auto;   /* Maintain aspect ratio */
+  display: block; /* Ensures the image takes its own line */
+  margin: 0 auto 2rem; /* Centers the image and adds space below it */
+}
+
+.feature-item h3 {
+  margin-bottom: 0.5rem;
+  color: #004F2D;
+}
+
+.feature-item p {
+  color: #333;
+}
+
+/* SCIENCE SECTION */
+.science {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.science h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #004F2D;
+}
+
+.science p {
+  line-height: 1.6;
+}
+
+/* PANTHENOL SECTION */
+.panthenol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: 2rem auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.panthenol__img {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.panthenol__img img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.panthenol__content {
+  flex: 1 1 400px;
+}
+
+.panthenol__content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #004F2D;
+}
+
+.panthenol__content p {
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #004F2D;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}

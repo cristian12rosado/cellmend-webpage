@@ -1,0 +1,8 @@
+<svg class="qY_pAA" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="overflow: hidden; width: 136.044px; height: 136.044px;">
+  <defs>
+    <clipPath id="__id61">
+      <path d="M32,0C14.33,0 0,14.33 0,32C0,49.67 14.33,64 32,64C49.67,64 64,49.67 64,32C64,14.33 49.67,0 32,0Z"/>
+    </clipPath>
+  </defs>
+  <path d="M32,0C14.33,0 0,14.33 0,32C0,49.67 14.33,64 32,64C49.67,64 64,49.67 64,32C64,14.33 49.67,0 32,0Z" stroke="#65ad78" stroke-width="8" stroke-linecap="butt" clip-path="url(#__id61)" fill="none" vector-effect="non-scaling-stroke"/>
+</svg>
