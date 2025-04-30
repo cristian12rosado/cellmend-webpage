@@ -1139,7 +1139,7 @@ body {
     pointer-events: none;
     mix-blend-mode: soft-light;                     /* optional soft blend */
     z-index: 4;                                     /* above shape, below content */
-    width: 400vw !important;  /* make the gradient twice as wide as the viewport */
+    width: 50vw !important;  /* make the gradient twice as wide as the viewport */
     height: auto     !important;  /* let the height scale with its aspect ratio */
     object-fit: cover;           /* ensure it still fills its box */
     /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
