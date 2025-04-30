@@ -987,72 +987,32 @@ body {
   z-index: 1;
 }
 
-/* ————————————————————————————————
-   MOBILE / TABLET ADJUSTMENTS
-——————————————————————————————————— */
-
-/* Tablet and below (≤768px) */
+/* Tablet & small desktops */
 @media (max-width: 768px) {
-  /* NAVBAR: logo above links, both centered */
   .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1rem 0 !important;
   }
   .navbar__logo {
-    margin-bottom: 0.5rem;
-    text-align: center;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
   }
   .navbar__links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  /* HERO: stack content & image vertically, center */
-  .hero {
-    flex-direction: column;
-    padding: 1.5rem;
-  }
-  .hero__content {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  .hero__image {
-    margin: 0 auto;
-  }
-
-  /* GRADIENTS: force them huge so they still cover */
-  .hero__gradient,
-  .hero__gradient__bottom,
-  .hero__gradient__others {
-    top:    -30vw !important;
-    left:   -50vw !important;
-    width:  300vw !important;
-    height: 60vw  !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
   }
 }
 
-/* Phone only (≤480px) */
+/* Phones */
 @media (max-width: 480px) {
-  /* shrink hero text & button */
-  .hero__content h1 {
-    font-size: 1.6rem;
+  .navbar__logo a {
+    font-size: 1.25rem !important;
   }
-  .hero__content p {
-    font-size: 0.95rem;
-  }
-  .cta-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  /* one-column feature items */
-  .features {
-    gap: 1.5rem;
-    padding-top: 2rem;
-  }
-  .feature-item {
-    max-width: 360px;
-    margin: 0 auto;
+  .navbar__links a {
+    font-size: 0.9rem !important;
   }
 }
