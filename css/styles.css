@@ -1015,6 +1015,11 @@ body {
     flex: 0 0 auto !important;
     display: inline-block !important;
   }
+  .header-wrapper .gradient-layer {
+    /* narrower & a bit taller to cover the smaller viewport */
+    width: 200vw !important;
+    height: 30vw !important;
+  }
 }
 
 /* Phones */
@@ -1034,5 +1039,10 @@ body {
   .navbar__links li {
     flex: 0 0 auto !important;
     display: inline-block !important;
+  }
+  .header-wrapper .gradient-layer {
+    /* even narrower and taller for phones */
+    width: 300vw !important;
+    height: 50vw !important;
   }
 }
