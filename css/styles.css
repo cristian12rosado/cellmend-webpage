@@ -987,26 +987,31 @@ body {
   z-index: 1;
 }
 
-/* Tablet & small desktops */
+/* ────────────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (MOBILE FIRST OVERRIDES)
+────────────────────────────────────────────────────────────────────────── */
+
+/* — Tablets & Small Desktops — */
 @media (max-width: 768px) {
+  /* gradient sizing (optional) */
   :root {
-    --grad-width: 200vw;
-    --grad-height: 30vw;
+    --grad-width: 380vw;
+    --grad-height: 3000vw;
   }
+
+  /* NAVBAR: stack under logo & center */
   .navbar {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     padding: 1rem 0 !important;
   }
-
   .navbar__logo {
     margin-bottom: 0.5rem !important;
     text-align: center !important;
   }
-
-  /* ↓ REPLACE your existing .navbar__links block with this ↓ */
   .navbar__links {
+    width: 100%;
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
@@ -1014,101 +1019,118 @@ body {
     gap: 0.75rem !important;
     margin: 0.5rem 0 !important;
   }
-  /* make each <li> shrink to its content, and sit side-by-side */
   .navbar__links li {
     flex: 0 0 auto !important;
-    display: inline-block !important;
   }
-  .hero__image {
-    flex: 1 1 300px;
+
+  /* HERO: single-column + extra top padding */
+  .hero {
     display: flex;
-    justify-content: center;
-    max-width: 300px;  /* Constrain the container's maximum width */
-    position: relative;
-    z-index: 3;  /* below content, above header background */
-    overflow: visible;
-    margin-left: auto;
-    /* if you want a little padding from the edge: */
-    padding-right: 2rem;
+    flex-direction: column !important;
+    align-items: center;
+    padding: 4rem 1.5rem 1.5rem !important; /* <— bump top */
   }
-  
+  .hero__content {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .hero__content h1 { font-size: 2rem; }
+  .hero__content p  { font-size: 1.1rem; }
+
+  .hero__image {
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: visible;
+    position: relative;
+    padding-right: 1rem;
+  }
+
+  /* GRADIENT LAYERS: pull up by same amount as hero padding */
+  .hero__gradient,
+  .hero__gradient__bottom,
+  .hero__gradient__others {
+    position: absolute;
+    top: -40rem !important;             /* <— same as hero’s top padding */
+    left: 50%;
+    transform: translateX(-50%);
+    width:  var(--grad-width)  !important;
+    height: var(--grad-height) !important;
+    object-fit: cover !important;
+    opacity: var(--grad-opacity);
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    z-index: 0;
+  }
+
   /* Place this at the very bottom of styles.css */
   .hero__image > img.hero__gradient {
-    width: 1vw !important;   /* your desired width */
-    height: 2vw !important;   /* let the height adjust */
+    width: 105vw !important;   /* your desired width */
+    height: 200vw !important;   /* let the height adjust */
     max-width: none !important;/* kill any implicit caps */
   }
-  
-  .hero__gradient {
-    position: absolute;
-    top: -10vw;             /* pull it up under the navbar */
-    left: -80vw;                                    /* shift it left/right as desired */
-    opacity: 0.5;                                   /* adjust intensity */
-    pointer-events: none;
-    mix-blend-mode: soft-light;                     /* optional soft blend */
-    z-index: 4;                                     /* above shape, below content */
-    width: 5vw !important;  /* make the gradient twice as wide as the viewport */
-    height: auto     !important;  /* let the height scale with its aspect ratio */
-    object-fit: cover;           /* ensure it still fills its box */
-    /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
+
+  /* FEATURES: single-column */
+  .features {
+    display: flex;
+    flex-direction: column !important;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+  .feature-item {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* SCIENCE / PANTHENOL: tighten text */
+  .science h2,
+  .panthenol__content h2 { font-size: 1.6rem; }
+  .science p,
+  .panthenol__content p { font-size: 0.95rem; }
+
+  /* FOOTER: slightly more breathing room */
+  .footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
-/* Phones */
+/* — Phones — */
 @media (max-width: 480px) {
-
+  /* gradient sizing override */
   :root {
-    --grad-width: 200vw;
-    --grad-height: 30vw;
+    --grad-width: 380vw;
+    --grad-height: 350vw;
   }
 
-  .navbar__logo a {
-    font-size: 1.25rem !important;
+  /* HERO: even more top padding for very small screens */
+  .hero {
+    padding: 5rem 1rem 1rem !important; /* <— bump top again */
+  }
+  /* pull gradient up by same amount */
+  .hero__gradient,
+  .hero__gradient__bottom,
+  .hero__gradient__others {
+    top: -5rem !important;
   }
 
-  .navbar__links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 0.5rem !important;
-    margin: 0.5rem 0 !important;
-  }
-  .navbar__links li {
-    flex: 0 0 auto !important;
-    display: inline-block !important;
-  }
-  .hero__image {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: center;
-    max-width: 300px;  /* Constrain the container's maximum width */
-    position: relative;
-    z-index: 3;  /* below content, above header background */
-    overflow: visible;
-    margin-left: auto;
-    /* if you want a little padding from the edge: */
-    padding-right: 2rem;
-  }
-  
   /* Place this at the very bottom of styles.css */
   .hero__image > img.hero__gradient {
-    width: 1vw !important;   /* your desired width */
-    height: 2vw !important;   /* let the height adjust */
+    width: 105vw !important;   /* your desired width */
+    height: 200vw !important;   /* let the height adjust */
     max-width: none !important;/* kill any implicit caps */
   }
-  
-  .hero__gradient {
-    position: absolute;
-    top: -10vw;             /* pull it up under the navbar */
-    left: -80vw;                                    /* shift it left/right as desired */
-    opacity: 0.5;                                   /* adjust intensity */
-    pointer-events: none;
-    mix-blend-mode: soft-light;                     /* optional soft blend */
-    z-index: 4;                                     /* above shape, below content */
-    width: 5vw !important;  /* make the gradient twice as wide as the viewport */
-    height: auto     !important;  /* let the height scale with its aspect ratio */
-    object-fit: cover;           /* ensure it still fills its box */
-    /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
+
+  /* shrink hero text & button */
+  .hero__content h1 { font-size: 1.8rem; }
+  .hero__content p  { font-size: 1rem;   }
+  .cta-button      { padding: 0.6rem 1rem; font-size: 0.9rem; }
+
+  /* FEATURES remain single-column */
+  .features {
+    padding-top: 1.5rem;
+  }
+  .feature-item {
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
