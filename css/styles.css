@@ -16,14 +16,76 @@ body {
   background-color: #ffffff;
 }
 
+/* 1. Define your navbar height once, so you can offset the gradient up into it */
+:root {
+  --nav-height: 0px;        /* adjust to your actual navbar height */
+  --shape-color: #1F4823;
+  --grad-width: 3500vw;    /* ← how wide the gradient is */
+  --grad-height: 40vw;    /* ← how tall the gradient is */
+  --grad-opacity: 0.5;    /* ← 0 = invisible, 1 = opaque */
+}
 
-/* NAVBAR */
+/* 2. Make sure your navbar sits on top */
 .navbar {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #004F2D;
-  padding: 1rem 2rem;
+  align-items: center;             /* vertically center logo + links */
+  justify-content: space-between;  /* logo on left, links on right */
+  padding: 0 1rem;                 /* optional horizontal padding */
+}
+
+/* remove any centering on the UL itself */
+.navbar__links {
+  margin: 0;       /* reset if you’d given it any margin */
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+
+/* 1) Make the wrapper a positioning context */
+.header-wrapper {
+  position: relative;
+  z-index: 1;              /* sits behind everything inside */
+  overflow: "hidden";
+}
+
+/* 2) Insert the “shape” behind nav & hero via ::before */
+.header-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--shape-color);
+  z-index: 0;              /* below all children */
+}
+
+/* the gradient “layer” behind navbar + hero */
+.header-wrapper .gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width:  var(--grad-width)  !important;
+  height: var(--grad-height) !important;
+
+  object-fit: cover;      /* fill its box, cropping if needed */
+  opacity: var(--grad-opacity);
+  pointer-events: none;
+  z-index: 0;             /* sitting behind nav & hero */
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1F4823; /* your green at 80% opacity */
+  z-index: -1;                      /* sits behind your links */
 }
 
 .navbar__logo a {
@@ -33,7 +95,10 @@ body {
   font-weight: 700;
 }
 
+/* remove any centering on the UL itself */
 .navbar__links {
+  margin: 0;       /* reset if you’d given it any margin */
+  padding: 0;
   list-style: none;
   display: flex;
   gap: 1rem;
@@ -50,21 +115,279 @@ body {
   color: #00E39F;
 }
 
+/* ————————————————————————————————
+   About Us / Founders grid
+——————————————————————————————————— */
+
+.about-us {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.about-us h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #004F2D;
+}
+
+/* ————————————————————————————————
+   About Us / Founders section
+——————————————————————————————————— */
+
+.about-us {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.about-us-intro h1 {
+  font-size: 2.5rem;
+  color: #004F2D;
+  margin-bottom: 0.5rem;
+}
+
+.about-us-intro p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.founder-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.founder-card img {
+  display: block;
+  width: 100%;
+  height: 400px;           /* fixed height for consistency */
+  object-fit: cover;       /* crop to fill */
+  transition: transform 0.4s ease;
+}
+
+.founder-card .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 79, 45, 0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: center;
+}
+
+.founder-card:hover img {
+  transform: scale(1.05);
+}
+
+.founder-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.overlay p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ————————————————————————————————
+   Blog Index / Title-Only Post Grid
+——————————————————————————————————— */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.post-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  min-height: 120px;            /* card height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Title centered in card */
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #004F2D;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Overlay with description + link */
+.post-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,79,45,0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* “Read more” link styling */
+.read-more {
+  margin-top: 0.5rem;
+  color: #00E39F;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* ————————————————————————————————
+   Blog Index: 4-square cards per row
+——————————————————————————————————— */
+
+/* 1) Force 4 columns on desktop */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* 2) Make each card a true square */
+.post-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+  /* remove any fixed heights */
+  min-height: unset;
+  padding: 0;
+
+  /* this makes width:auto from grid + height = width */
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* keep the hover-lift if you like */
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Title centered */
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #004F2D;
+  text-align: center;
+  z-index: 1;
+  padding: 1rem;  /* give it some breathing room */
+}
+
+/* Overlay unchanged */
+.post-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,79,45,0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Adjust your “Read more” link as before */
+.read-more {
+  margin-top: 0.5rem;
+  color: #00E39F;
+  text-decoration: none;
+  font-weight: 500;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* 3) Optional: responsive fallback */
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* HERO SECTION */
 .hero {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #004F2D, #0AC694);
+  justify-content: flex-start !important;
+  background: linear-gradient(135deg, #1F4823, #1F4823);
   color: #fff;
   padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--shape-color);
+  z-index: -1;               /* bottom layer */
 }
 
 .hero__content {
   flex: 1 1 400px;
   max-width: 600px;
   margin-right: 2rem;
+  position: relative;
+  z-index: 5;  /* highest so text is always above everything */
 }
 
 .hero__content h1 {
@@ -98,7 +421,76 @@ body {
   display: flex;
   justify-content: center;
   max-width: 300px;  /* Constrain the container's maximum width */
-  margin: 0 auto;
+  position: relative;
+  z-index: 3;  /* below content, above header background */
+  overflow: visible;
+  margin-left: auto;
+  /* if you want a little padding from the edge: */
+  padding-right: 2rem;
+}
+
+/* Place this at the very bottom of styles.css */
+.hero__image > img.hero__gradient {
+  width: 105vw !important;   /* your desired width */
+  height: 44vw !important;   /* let the height adjust */
+  max-width: none !important;/* kill any implicit caps */
+}
+
+.hero__gradient {
+  position: absolute;
+  top: -10vw;             /* pull it up under the navbar */
+  left: -80vw;                                    /* shift it left/right as desired */
+  opacity: 0.5;                                   /* adjust intensity */
+  pointer-events: none;
+  mix-blend-mode: soft-light;                     /* optional soft blend */
+  z-index: 4;                                     /* above shape, below content */
+  width: 200vw !important;  /* make the gradient twice as wide as the viewport */
+  height: auto     !important;  /* let the height scale with its aspect ratio */
+  object-fit: cover;           /* ensure it still fills its box */
+  /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
+}
+
+.hero__gradient__bottom {
+  position: absolute;
+  top: -22.5vw;             /* pull it up under the navbar */
+  left: -25vw;                                    /* shift it left/right as desired */
+  pointer-events: none;
+  mix-blend-mode: soft-light;                     /* optional soft blend */
+  width: 110vw !important;  /* make the gradient twice as wide as the viewport */
+  height: auto     !important;  /* let the height scale with its aspect ratio */
+  object-fit: cover;           /* ensure it still fills its box */
+  /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
+  z-index: 0;
+}
+
+/* Place this at the very bottom of styles.css */
+.hero__image > img.hero__gradient__others {
+  width: 105vw !important;   /* your desired width */
+  height: 29.5vw !important;   /* let the height adjust */
+  max-width: none !important;/* kill any implicit caps */
+}
+
+.hero__gradient__others {
+  position: absolute;
+  top: -20vw;             /* pull it up under the navbar */
+  left: -80vw;                                    /* shift it left/right as desired */
+  opacity: 0.5;                                   /* adjust intensity */
+  pointer-events: none;
+  mix-blend-mode: soft-light;                     /* optional soft blend */
+  z-index: 4;                                     /* above shape, below content */
+  width: 200vw !important;  /* make the gradient twice as wide as the viewport */
+  height: auto     !important;  /* let the height scale with its aspect ratio */
+  object-fit: cover;           /* ensure it still fills its box */
+  /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
+}
+
+/* Bottle styling (unchanged placement) */
+.hero__bottle {
+  position: relative;
+  z-index: 5;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .hero__image img {
@@ -110,10 +502,13 @@ body {
 .features {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   margin: 2rem auto;
   max-width: 1200px;
   gap: 2rem;
+  z-index: 2;
+  padding-top: 2.5vw;
 }
 
 .feature-item {
@@ -146,7 +541,8 @@ body {
   max-width: 800px;
   margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
+  padding-top: 4rem;
+  z-index: 2;
 }
 
 .science h2 {
@@ -159,6 +555,54 @@ body {
   line-height: 1.6;
 }
 
+.shape-wrapper {
+  position: relative;    /* establish a stacking context */
+  z-index: 1;            /* sit behind your content */
+  margin-top: 4.5rem;
+  padding-top: 4.5rem;
+  background-color: #50855D;       /* your green—or any color you choose */
+  overflow: hidden;
+}
+
+/* The single pseudo-element that becomes your “shape” */
+.shape-wrapper::before {
+  content: "";
+  position: absolute;
+  top:    0rem;             /* top of the wrapper (i.e. top of .science) */
+  left:   0;
+  right:  0;
+  bottom: 0;             /* bottom of the wrapper (i.e. bottom of footer) */
+  
+  /* styling the shape */
+  background-color: #50855D;
+  background-size: cover;   
+  border-top-left-radius:  650px;   /* rounded top corners */
+  border-top-right-radius: 650px;
+  border-bottom-left-radius: 0;    /* square bottom corners */
+  border-bottom-right-radius:0;
+  
+  z-index: -1;         /* sit behind everything inside .shape-wrapper */
+}
+
+/* 4. Paint the gradient over the green bar */
+.shape-wrapper::after {
+  content: "";
+  position: absolute;
+  top:    0; left: 0; right: 0; bottom: 0;
+  background: url("../images/gradient.png") no-repeat top center;
+  background-size: cover;
+  opacity: var(--grad-opacity);
+  mix-blend-mode: soft-light;  /* optional: blend gently */
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 5. Push your actual sections & footer above both layers */
+.shape-wrapper > * {
+  position: relative;
+  z-index: 3;
+}
+
 /* PANTHENOL SECTION */
 .panthenol {
   display: flex;
@@ -168,6 +612,7 @@ body {
   margin: 2rem auto;
   gap: 2rem;
   padding: 1rem;
+  z-index: 5;
 }
 
 .panthenol__img {
@@ -200,4 +645,344 @@ body {
   padding: 1rem;
   text-align: center;
   color: #fff;
+}
+
+/* ————————————————————————————————
+   Blog Index: Single-card overlay logic
+——————————————————————————————————— */
+
+/* Ensure each card is a stacking context */
+.blog-grid .post-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Title sits under the overlay */
+.blog-grid .post-card .post-title {
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay hidden by default */
+.blog-grid .post-card .post-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,79,45,0.85);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+/* Only the hovered card’s overlay shows */
+.blog-grid .post-card:hover .post-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hide overlays by default */
+.post-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Reveal only the hovered card’s overlay */
+.post-card:hover .post-overlay {
+  opacity: 1;
+}
+
+/* 1) Make sure every overlay starts hidden */
+.blog-grid .post-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 2) And ONLY the one card you’re hovering shows its overlay */
+.blog-grid .post-card:hover .post-overlay {
+  opacity: 1 !important;
+}
+
+/* Add at the bottom of styles.css */
+
+.blog-grid .post-card:hover .post-title {
+  opacity: 0;              /* fade out the title itself */
+  transition: opacity 0.3s ease;
+}
+
+/* ————————————————————————————————
+   Slideshow + Thin Glowing Progress Bar
+——————————————————————————————————— */
+
+.slider-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 4rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.slider-wrapper.visible {
+  opacity: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 35%; /* 16:9 aspect ratio, tweak as desired */
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Progress bar track (white & semi-transparent) */
+.slider-progress {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 4px;  /* thin bar */
+  background: rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+
+/* Animated fill + glow */
+.slider-progress-bar {
+  width: 0;
+  height: 100%;
+  background: #00E39F;
+  /* glow */
+  box-shadow: 0 0 8px rgba(0,227,159,0.6),
+              0 0 16px rgba(0,227,159,0.4);
+  animation: sliderProgress 5s linear infinite;
+}
+
+@keyframes sliderProgress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* Responsive fallback: square on mobile */
+@media (max-width: 600px) {
+/* push the progress bar down below the slider */
+  .slider-wrapper {
+    margin-bottom: 4rem;  /* space between slider and bar */
+    overflow: visible;    /* just in case you had overflow:hidden */
+  }
+
+  .slider {
+    padding-top: 75%; /* taller aspect for mobile */
+  }
+}
+
+/* ————————————————————————————————
+   Static Progress Bar w/ Stages & Current Circle
+——————————————————————————————————— */
+
+/* center it and keep it clean */
+.progress-container {
+  max-width: 1000px;    /* same as your slider */
+  margin: 0 auto 3rem;  /* no top margin needed now, bottom for breathing room */
+}
+
+.progress-track {
+  position: relative;
+  height: 4px;                           /* thin bar */
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  overflow: visible;
+}
+
+/* filled portion */
+.progress-fill {
+  width: 0;  /* inline style overrides this */
+  height: 100%;
+  background: #00E39F;
+  border-radius: 2px;
+  box-shadow:
+    0 0 6px rgba(0,227,159,0.6),
+    0 0 12px rgba(0,227,159,0.4);
+  transition: width 0.3s ease;
+}
+
+/* glowing current‐step circle */
+.progress-current {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #00E39F;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 6px rgba(0,227,159,0.6),
+    0 0 12px rgba(0,227,159,0.4);
+  z-index: 3;
+}
+
+/* stage markers */
+.stage {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.stage-label {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* alternate label positions */
+.stage-label.top {
+  bottom: 100%;
+  margin-bottom: 0.4rem;
+}
+
+.stage-label.bottom {
+  top: 100%;
+  margin-top: 0.4rem;
+}
+
+/* Logo: two-line, multi-style */
+.logo {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;            /* collapse lines tightly */
+}
+
+/* First word style */
+.logo-cell {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #fff;             /* bright mint */
+}
+
+.logo-mend {
+  font-size: 3rem;
+  font-weight: 700;    /* make “mend” bold */
+  color: #00E39F;
+  margin-left: 0.1em;
+}
+
+/* Subtitle containing dashes + text */
+.logo-subtitle {
+  display: block;
+  font-size: 0.4rem;
+  margin-top: 0.1em;
+}
+
+/* Dashes styled to look like a solid line */
+.logo-subtitle .dash {
+  color: #00E39F;                /* same as logo-mend or whatever line color */
+  letter-spacing: -0.25em;    /* pull dashes together */
+  font-weight: 1000;    /* make “mend” bold */
+  font-size: 1.1rem;
+}
+
+/* The word “Technologies” */
+.logo-subtitle .tech {
+  color: #fff;             /* match logo-cell */
+  margin: 0 0.2em;            /* space from the dashes */
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+/* lift navbar & hero above the gradient */
+.header-wrapper > .navbar,
+.header-wrapper > .hero {
+  position: relative;
+  z-index: 1;
+}
+
+.milestones-header {
+  padding-top: 3rem;   /* adjust to taste */
+  text-align: center;
+}
+
+/* ————————————————————————————— Contact Form ————————————————————————————— */
+.contact {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.contact__content h1 {
+  font-size: 2.5rem;
+  color: #004F2D;
+  margin-bottom: 0.5rem;
+}
+
+.contact__content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* stack inputs vertically with consistent spacing */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* label + control spacing */
+.contact__form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #004F2D;
+}
+
+/* inputs & textarea styling */
+.contact__form .form-group input,
+.contact__form .form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* match your CTA button style */
+.contact__form .cta-button {
+  align-self: center;
+  margin-top: 1rem;
+}
+
+/* ensure the footer sits below */
+.footer {
+  position: relative;
+  z-index: 1;
 }
