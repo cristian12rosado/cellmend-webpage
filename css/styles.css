@@ -1014,7 +1014,12 @@ body {
   .navbar__logo a {
     font-size: 1.25rem !important;
   }
-  .navbar__links a {
-    font-size: 0.9rem !important;
+  .navbar__links {
+    display: flex !important;
+    flex-direction: row !important;      /* ← row instead of column */
+    flex-wrap: wrap !important;          /* wrap onto multiple lines if needed */
+    justify-content: center !important;  /* center the row */
+    gap: 0.75rem !important;             /* adjust spacing to taste */
+    margin: 0.5rem 0 !important;         /* optional vertical breathing room */
   }
 }
