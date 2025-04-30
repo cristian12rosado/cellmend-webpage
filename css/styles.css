@@ -986,3 +986,71 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* ————————————————————————————————
+   MOBILE RESPONSIVE
+——————————————————————————————————— */
+@media (max-width: 768px) {
+  /* wrap navbar links */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .navbar__links {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  /* stack hero */
+  .hero {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .hero__content {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .hero__image {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* tame huge gradients */
+  .hero__gradient,
+  .hero__gradient__bottom,
+  .hero__gradient__others {
+    top: -20vw !important;
+    left: -50vw !important;
+    width: 200vw !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* shrink hero text + button */
+  .hero__content h1 { font-size: 1.8rem; }
+  .hero__content p  { font-size: 1rem;   }
+  .cta-button      { padding: 0.6rem 1rem; font-size: 0.9rem; }
+
+  /* one-column features */
+  .features {
+    padding-top: 2rem;
+  }
+  .feature-item {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* smaller science/panthenol text */
+  .science h2,
+  .panthenol__content h2 { font-size: 1.6rem; }
+  .science p,
+  .panthenol__content p { font-size: 0.95rem; }
+
+  /* footer padding */
+  .footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
