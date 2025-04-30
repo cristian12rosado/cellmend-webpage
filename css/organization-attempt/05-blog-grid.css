@@ -1,0 +1,89 @@
+/* 05-blog-grid.css */
+
+/* ————————————————————————————————
+   Blog Index / Title-Only Post Grid
+——————————————————————————————————— */
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .post-card {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .post-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #004F2D;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .post-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,79,45,0.85);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .post-overlay .read-more {
+    margin-top: 0.5rem;
+    color: #00E39F;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .post-overlay .read-more:hover {
+    text-decoration: underline;
+  }
+  
+  /* ————————————————————————————————
+     Blog Index: 4-square cards per row
+  ——————————————————————————————————— */
+  
+  .blog-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .post-card {
+    min-height: unset;
+    padding: 0;
+    aspect-ratio: 1 / 1;
+  }
+  
+  @media (max-width: 900px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

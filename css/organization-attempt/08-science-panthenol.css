@@ -1,0 +1,103 @@
+/* 08-science-panthenol.css */
+
+/* ————————————————————————————————
+   SCIENCE SECTION
+——————————————————————————————————— */
+.science {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+    padding-top: 4rem;
+    z-index: 2;
+  }
+  
+  .science h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #004F2D;
+  }
+  
+  .science p {
+    line-height: 1.6;
+  }
+  
+  /* Shape wrapper for rounded background + gradient overlay */
+  .shape-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 4.5rem;
+    padding-top: 4.5rem;
+    background-color: #50855D;
+    overflow: hidden;
+  }
+  
+  .shape-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #50855D;
+    border-top-left-radius: 650px;
+    border-top-right-radius: 650px;
+    z-index: -1;
+  }
+  
+  .shape-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../images/gradient.png") no-repeat top center;
+    background-size: cover;
+    opacity: var(--grad-opacity);
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  .shape-wrapper > * {
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* ————————————————————————————————
+     PANTHENOL SECTION
+  ——————————————————————————————————— */
+  .panthenol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 1rem;
+    z-index: 5;
+  }
+  
+  .panthenol__img {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+  
+  .panthenol__img img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .panthenol__content {
+    flex: 1 1 400px;
+  }
+  
+  .panthenol__content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #004F2D;
+  }
+  
+  .panthenol__content p {
+    line-height: 1.6;
+  }  

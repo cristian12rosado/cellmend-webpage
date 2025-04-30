@@ -1,0 +1,81 @@
+/* 01-header.css */
+
+/* Root variables for gradients and navbar */
+:root {
+  --nav-height: 0px;        /* adjust to your actual navbar height */
+  --shape-color: #1F4823;
+  --grad-width: 3500vw;     /* how wide the gradient is */
+  --grad-height: 40vw;      /* how tall the gradient is */
+  --grad-opacity: 0.5;      /* 0 = invisible, 1 = opaque */
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.navbar__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.navbar__links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.navbar__links a:hover {
+  color: #00E39F;
+}
+.navbar__logo a {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1F4823;
+  z-index: -1;
+}
+
+/* HEADER WRAPPER + GRADIENT LAYER */
+.header-wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.header-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--shape-color);
+  z-index: 0;
+}
+
+/* Gradient image behind navbar & hero */
+.gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--grad-width) !important;
+  height: var(--grad-height) !important;
+  object-fit: cover;
+  opacity: var(--grad-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
