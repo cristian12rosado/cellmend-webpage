@@ -1034,8 +1034,8 @@ body {
   
   /* Place this at the very bottom of styles.css */
   .hero__image > img.hero__gradient {
-    width: 105vw !important;   /* your desired width */
-    height: 44vw !important;   /* let the height adjust */
+    width: 1vw !important;   /* your desired width */
+    height: 2vw !important;   /* let the height adjust */
     max-width: none !important;/* kill any implicit caps */
   }
   
@@ -1047,40 +1047,7 @@ body {
     pointer-events: none;
     mix-blend-mode: soft-light;                     /* optional soft blend */
     z-index: 4;                                     /* above shape, below content */
-    width: 200vw !important;  /* make the gradient twice as wide as the viewport */
-    height: auto     !important;  /* let the height scale with its aspect ratio */
-    object-fit: cover;           /* ensure it still fills its box */
-    /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
-  }
-  .hero__image {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: center;
-    max-width: 300px;  /* Constrain the container's maximum width */
-    position: relative;
-    z-index: 3;  /* below content, above header background */
-    overflow: visible;
-    margin-left: auto;
-    /* if you want a little padding from the edge: */
-    padding-right: 2rem;
-  }
-  
-  /* Place this at the very bottom of styles.css */
-  .hero__image > img.hero__gradient {
-    width: 205vw !important;   /* your desired width */
-    height: 300vw !important;   /* let the height adjust */
-    max-width: none !important;/* kill any implicit caps */
-  }
-  
-  .hero__gradient {
-    position: absolute;
-    top: -10vw;             /* pull it up under the navbar */
-    left: -80vw;                                    /* shift it left/right as desired */
-    opacity: 0.5;                                   /* adjust intensity */
-    pointer-events: none;
-    mix-blend-mode: soft-light;                     /* optional soft blend */
-    z-index: 4;                                     /* above shape, below content */
-    width: 400vw !important;  /* make the gradient twice as wide as the viewport */
+    width: 5vw !important;  /* make the gradient twice as wide as the viewport */
     height: auto     !important;  /* let the height scale with its aspect ratio */
     object-fit: cover;           /* ensure it still fills its box */
     /* keep your existing top/left/opacity/mix-blend-mode/z-index here */
