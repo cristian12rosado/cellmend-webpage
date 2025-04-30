@@ -995,17 +995,25 @@ body {
     align-items: center !important;
     padding: 1rem 0 !important;
   }
+
   .navbar__logo {
     margin-bottom: 0.5rem !important;
     text-align: center !important;
   }
+
+  /* ↓ REPLACE your existing .navbar__links block with this ↓ */
   .navbar__links {
     display: flex !important;
-    flex-direction: row !important;      /* ← row instead of column */
-    flex-wrap: wrap !important;          /* wrap onto multiple lines if needed */
-    justify-content: center !important;  /* center the row */
-    gap: 0.75rem !important;             /* adjust spacing to taste */
-    margin: 0.5rem 0 !important;         /* optional vertical breathing room */
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  /* make each <li> shrink to its content, and sit side-by-side */
+  .navbar__links li {
+    flex: 0 0 auto !important;
+    display: inline-block !important;
   }
 }
 
@@ -1014,12 +1022,17 @@ body {
   .navbar__logo a {
     font-size: 1.25rem !important;
   }
+
   .navbar__links {
     display: flex !important;
-    flex-direction: row !important;      /* ← row instead of column */
-    flex-wrap: wrap !important;          /* wrap onto multiple lines if needed */
-    justify-content: center !important;  /* center the row */
-    gap: 0.75rem !important;             /* adjust spacing to taste */
-    margin: 0.5rem 0 !important;         /* optional vertical breathing room */
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  .navbar__links li {
+    flex: 0 0 auto !important;
+    display: inline-block !important;
   }
 }
