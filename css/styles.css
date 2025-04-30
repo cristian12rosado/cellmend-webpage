@@ -1050,7 +1050,7 @@ body {
   .hero__gradient__bottom,
   .hero__gradient__others {
     position: absolute;
-    top: -50rem !important;             /* <— same as hero’s top padding */
+    top: -40rem !important;             /* <— same as hero’s top padding */
     left: 50%;
     transform: translateX(-50%);
     width:  var(--grad-width)  !important;
@@ -1110,7 +1110,7 @@ body {
   .hero__gradient,
   .hero__gradient__bottom,
   .hero__gradient__others {
-    top: -50rem !important;
+    top: -5rem !important;
   }
 
   /* Place this at the very bottom of styles.css */
