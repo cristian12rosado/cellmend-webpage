@@ -1,0 +1,81 @@
+/* 04-about-us.css */
+
+/* ————————————————————————————————
+   About Us / Founders Section
+——————————————————————————————————— */
+
+.about-us {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  
+  .about-us-intro h1 {
+    font-size: 2.5rem;
+    color: #004F2D;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-us-intro p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .founders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  
+  .founder-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .founder-card img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .founder-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 79, 45, 0.85);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: center;
+  }
+  
+  .founder-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .founder-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .overlay h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .overlay p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }  

@@ -1,0 +1,53 @@
+/* ————————————————————————————————
+   Contact Form
+——————————————————————————————————— */
+
+.contact {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .contact__content h1 {
+    font-size: 2.5rem;
+    color: #004F2D;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact__content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contact__form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #004F2D;
+  }
+  
+  .contact__form .form-group input,
+  .contact__form .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+  }
+  
+  .contact__form .cta-button {
+    align-self: center;
+    margin-top: 1rem;
+  }
+  

@@ -1,0 +1,71 @@
+/* ————————————————————————————————
+   Static Progress Bar w/ Stages & Current Circle
+——————————————————————————————————— */
+
+.progress-container {
+    max-width: 1000px;    /* match your slider width */
+    margin: 0 auto 3rem;  /* center & give bottom breathing room */
+  }
+  
+  .progress-track {
+    position: relative;
+    height: 4px;                           /* thin bar */
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    overflow: visible;
+  }
+  
+  /* filled portion */
+  .progress-fill {
+    width: 0;  /* inline style overrides this */
+    height: 100%;
+    background: #00E39F;
+    border-radius: 2px;
+    box-shadow:
+      0 0 6px rgba(0,227,159,0.6),
+      0 0 12px rgba(0,227,159,0.4);
+    transition: width 0.3s ease;
+  }
+  
+  /* glowing current‐step circle */
+  .progress-current {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: #00E39F;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow:
+      0 0 6px rgba(0,227,159,0.6),
+      0 0 12px rgba(0,227,159,0.4);
+    z-index: 3;
+  }
+  
+  /* stage markers */
+  .stage {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  .stage-label {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #000;
+  }
+  
+  /* alternate label positions */
+  .stage-label.top {
+    bottom: 100%;
+    margin-bottom: 0.4rem;
+  }
+  
+  .stage-label.bottom {
+    top: 100%;
+    margin-top: 0.4rem;
+  }
+  

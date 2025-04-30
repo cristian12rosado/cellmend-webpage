@@ -1,0 +1,102 @@
+/* 02-hero.css */
+
+/* --------------------------------------
+   Hero Section Variables
+--------------------------------------- */
+:root {
+    /* knobs for independent width & height */
+    --grad-width: 3500vw;    /* how wide the gradient is */
+    --grad-height: 40vw;     /* how tall the gradient is */
+    --grad-opacity: 0.5;     /* 0 = invisible, 1 = fully opaque */
+  }
+  
+  /* --------------------------------------
+     HERO SECTION
+  --------------------------------------- */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;         /* clip overflow from gradient */
+    color: #fff;
+  }
+  
+  /* gradient layer behind hero content */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    width:  var(--grad-width);
+    height: var(--grad-height);
+  
+    background: url("../images/shapes/gradient.png") no-repeat center center;
+    background-size: cover;
+    opacity: var(--grad-opacity);
+    pointer-events: none;
+    z-index: 0;              /* behind all hero children */
+  }
+  
+  /* text & button container */
+  .hero__content {
+    flex: 1 1 400px;
+    max-width: 600px;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 1;              /* above gradient */
+  }
+  .hero__content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero__content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #004F2D;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .cta-button:hover {
+    background-color: #00E39F;
+    color: #004F2D;
+  }
+  
+  /* image & bottle container */
+  .hero__image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;              /* above gradient */
+    padding-right: 2rem;
+  }
+  .hero__bottle {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;              /* above everything in hero */
+  }
+  
+  /* optional: extra gradient variant at bottom of hero */
+  .hero__gradient__bottom {
+    position: absolute;
+    top: -22.5vw;
+    left: -25vw;
+    width: 110vw;
+    height: auto;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    z-index: 0;              /* behind bottle & content */
+  }  

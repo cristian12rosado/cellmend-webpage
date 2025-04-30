@@ -1,0 +1,115 @@
+/* HERO SECTION */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start !important;
+    background: linear-gradient(135deg, #1F4823, #1F4823);
+    color: #fff;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: var(--shape-color);
+    z-index: -1;
+  }
+  
+  .hero__content {
+    flex: 1 1 400px;
+    max-width: 600px;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .hero__content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero__content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #004F2D;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #00E39F;
+    color: #004F2D;
+  }
+  
+  .hero__image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+    position: relative;
+    z-index: 3;
+    overflow: visible;
+    margin-left: auto;
+    padding-right: 2rem;
+  }
+  
+  /* gradient overlay, independent width/height */
+  .hero__gradient,
+  .hero__image > img.hero__gradient {
+    position: absolute;
+    top: calc(var(--nav-height) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--grad-width) !important;
+    height: var(--grad-height) !important;
+    opacity: var(--grad-opacity);
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    object-fit: cover;
+    z-index: 4;
+  }
+  
+  /* bottom variant (behind features) */
+  .hero__gradient__bottom,
+  .hero__image > img.hero__gradient__bottom {
+    position: absolute;
+    top: var(--grad-height);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--grad-width) !important;
+    height: var(--grad-height) !important;
+    opacity: var(--grad-opacity);
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .hero__bottle {
+    position: relative;
+    z-index: 5;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .hero__image img {
+    max-width: 100%;
+    height: auto;
+  }  
