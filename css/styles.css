@@ -1043,6 +1043,6 @@ body {
   .header-wrapper .gradient-layer {
     /* even narrower and taller for phones */
     width: 300vw !important;
-    height: 50vw !important;
+    height: 500vw !important;
   }
 }
