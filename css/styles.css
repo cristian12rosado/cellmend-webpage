@@ -989,6 +989,10 @@ body {
 
 /* Tablet & small desktops */
 @media (max-width: 768px) {
+  :root {
+    --grad-width: 200vw;
+    --grad-height: 30vw;
+  }
   .navbar {
     display: flex !important;
     flex-direction: column !important;
@@ -1024,6 +1028,10 @@ body {
 
 /* Phones */
 @media (max-width: 480px) {
+  :root {
+    --grad-width: 200vw;
+    --grad-height: 30vw;
+  }
   .navbar__logo a {
     font-size: 1.25rem !important;
   }
