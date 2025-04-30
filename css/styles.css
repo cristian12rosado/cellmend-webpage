@@ -1110,7 +1110,7 @@ body {
   .hero__gradient,
   .hero__gradient__bottom,
   .hero__gradient__others {
-    top: -5rem !important;
+    top: -50rem !important;
   }
 
   /* Place this at the very bottom of styles.css */
