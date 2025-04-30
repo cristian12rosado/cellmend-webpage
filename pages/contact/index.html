@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Cellmend</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+
+  <div class="header-wrapper">
+    <!-- reuse your nav -->
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="../index.html" class="logo">
+          <span class="logo-cell">cell</span><span class="logo-mend">mend</span>
+          <span class="logo-subtitle">
+            <span class="dash">-------</span>
+            <span class="tech">T E C H N O L O G I E S</span>
+            <span class="dash">-------</span>
+          </span>
+        </a>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/shop/index.html">Shop</a></li>
+        <li><a href="../pages/about-us/index.html">About Us</a></li>
+        <li><a href="../pages/status/index.html">Status</a></li>
+        <li><a href="../pages/cart/index.html">Cart</a></li>
+        <li><a href="../pages/blog/index.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact">
+    <div class="contact__content">
+      <h1>Get in Touch</h1>
+      <p>Have questions? Send us a message and we’ll get back to you ASAP.</p>
+    </div>
+
+    <form action="https://formspree.io/f/xldbgpjq" method="POST">
+      <!-- capture the visitor’s email as the reply-to header -->
+      <input type="hidden" name="_replyto" id="replytoInput">
+    
+      <!-- on free plan: redirect after submit -->
+      <input type="hidden"
+             name="_next"
+             value="https://your-site.com/thank-you.html" />
+    
+      <!-- on paid plan instead, use: -->
+      <!-- <input type="hidden" name="_autoresponse"
+             value="Thanks for contacting us! We’ll reply soon." /> -->
+    
+      <!-- your normal fields -->
+      <label>Name<input type="text" name="name" required></label>
+      <label>Email
+        <input type="email" name="email" required
+               oninput="replytoInput.value = this.value">
+      </label>
+      <label>Message<textarea name="message" required></textarea></label>
+      <button type="submit">Send</button>
+    </form>    
+  
+  </section>
+
+  <!-- reuse your footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Cellmend. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

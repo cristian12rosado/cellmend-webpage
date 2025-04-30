@@ -13,34 +13,20 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" 
     rel="stylesheet"
   />
-  <link 
-  href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" 
-  rel="stylesheet"
-  />
-
 </head>
 <body>
 
   <!-- TOP NAVIGATION -->
   <nav class="navbar">
     <div class="navbar__logo">
-      <a href="#" class="logo">
-        <span class="logo-cell">cell</span><span class="logo-mend">mend</span>
-        <span class="logo-subtitle">
-          <span class="dash">-------</span>
-          <span class="tech">T E C H N O L O G I E S</span>
-          <span class="dash">-------</span>
-        </span>
-      </a>
-    </div>    
+      <a href="#">cellmend</a>
+    </div>
     <ul class="navbar__links">
       <li><a href="#">Home</a></li>
-      <li><a href="pages/shop/index.html">Shop</a></li>
-      <li><a href="pages/about-us/index.html">About Us</a></li>
-      <li><a href="pages/status/index.html">Status</a></li>
-      <li><a href="pages/cart/index.html">Cart</a></li>
-      <li><a href="pages/contact/index.html">Contact</a></li>
-      <li><a href="pages/blog/index.html">Blog</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Basket</a></li>
     </ul>
   </nav>
 
@@ -55,15 +41,15 @@
     <div class="hero__image">
       <!-- 1️⃣ Gradient, absolutely positioned -->
       <img
-      src="images/shapes/gradient.png"
+      src="images/gradient.png"
       alt="Gradient design"
       class="hero__gradient"
-      style="width:300px; height: 100px;;"
+      style="width:300px; height:auto;"
       draggable="false"
       />    
       <!-- 2️⃣ Bottle stays exactly where it was -->
       <img
-        src="images/icons/bottle-no-background.png"
+        src="images/bottle-no-background.png"
         alt="Cellmend Antiseptic Bottle"
         class="hero__bottle"
       />
@@ -72,13 +58,13 @@
 
   <!-- FEATURES SECTION -->
   <section class="features">
-    <div class="feature-item" data-aos="fade-up">
+    <div class="feature-item">
       <div class="icon-container" style="position: relative; display: inline-block;">
-        <img src="images/icons/bacteria-icon-simple.png" alt="Antimicrobial Icon" class="feature-icon" style="position: relative; z-index: 10;">
+        <img src="images/bacteria-icon-simple.png" alt="Antimicrobial Icon" class="feature-icon" style="position: relative; z-index: 10;">
         <!-- Circle image placed absolutely inside the container -->
-        <img src="images/shapes/circle.png" alt="Circle Icon" style="position: absolute; top: 37.5%; left: 50%; transform: translate(-50%, -50%); z-index: 0; height: 150px; width: 150px;">
+        <img src="images/circle.png" alt="Circle Icon" style="position: absolute; top: 37.5%; left: 50%; transform: translate(-50%, -50%); z-index: 0; height: 150px; width: 150px;">
         <!-- Fire icon image with its existing class (stays on top) -->
-        <img src="images/shapes/line.png" alt="Circle Icon" 
+        <img src="images/line.png" alt="Circle Icon" 
           style="position: absolute; top: 37.5%; left: 50%; 
           transform: translate(-50%, -50%) rotate(45deg);
           transform-origin: center;
@@ -88,13 +74,13 @@
       <h3>Antimicrobial</h3>
       <p>Increasing potency &amp; efficacy.</p>
     </div>
-    <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+    <div class="feature-item">
       <div class="icon-container" style="position: relative; display: inline-block;">
-        <img src="images/icons/fire-icon.svg.png" alt="Anti-inflammatory Icon" class="feature-icon" style="position: relative; z-index: 1;">
+        <img src="images/fire-icon.svg.png" alt="Anti-inflammatory Icon" class="feature-icon" style="position: relative; z-index: 1;">
         <!-- Circle image placed absolutely inside the container -->
-        <img src="images/shapes/circle.png" alt="Circle Icon" style="position: absolute; top: 37.5%; left: 50%; transform: translate(-50%, -50%); z-index: 0; height: 150px; width: 150px;">
+        <img src="images/circle.png" alt="Circle Icon" style="position: absolute; top: 37.5%; left: 50%; transform: translate(-50%, -50%); z-index: 0; height: 150px; width: 150px;">
         <!-- Fire icon image with its existing class (stays on top) -->
-        <img src="images/shapes/line.png" alt="Circle Icon" 
+        <img src="images/line.png" alt="Circle Icon" 
           style="position: absolute; top: 37.5%; left: 50%; 
           transform: translate(-50%, -50%) rotate(45deg);
           transform-origin: center;
@@ -104,8 +90,8 @@
       <h3>Anti-inflammatory</h3>
       <p>Promoting immune response.</p>
     </div>
-    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-      <img src="images/icons/lightbulb-icon.png" alt="Antimicrobial Icon" class="feature-icon" />
+    <div class="feature-item">
+      <img src="images/lightbulb-icon.png" alt="Antimicrobial Icon" class="feature-icon" />
       <h3>Luminescent</h3>
       <p>Brightening your skin.</p>
     </div>
@@ -114,15 +100,6 @@
   <!-- SCIENCE SECTION -->
   <div class="shape-wrapper">
   <section class="science">
-    <!-- 1️⃣ Gradient, absolutely positioned -->
-    <img
-    src="images/shapes/gradient-inverted.png"
-    alt="Gradient design"
-    class="hero__gradient__bottom"
-    style="width:300px; height: 100px;;"
-    draggable="false"
-    />    
-    
     <h2>Designed for Skin Health. Backed by Science.</h2>
     <p>
       In our research, we developed <strong>Panthenol Citrate (PC)</strong> –
@@ -137,7 +114,7 @@
   <section class="panthenol">
     <div class="panthenol__img">
       <img 
-        src="images/icons/cell-image.png" 
+        src="images/cell-image.png" 
         alt="Panthenol Citrate Molecule"
       />
     </div>
@@ -149,6 +126,16 @@
         with Cellmend’s advanced formula.
       </p>
     </div>
+    <div class="hero__image">
+      <!-- 1️⃣ Gradient, absolutely positioned -->
+      <img
+      src="images/gradient.png"
+      alt="Gradient design"
+      class="hero__gradient__bottom"
+      style="width:300px; height:auto;"
+      draggable="false"
+      />    
+    </div>    
   </section>
   </div>
 
@@ -156,13 +143,6 @@
   <footer class="footer">
     <p>&copy; 2025 Cellmend. All rights reserved.</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 600,    // how long the animation runs
-      once: false,      // ← allow animation every time you scroll into view
-      mirror: true      // ← animate elements out when scrolling past (optional)
-    });
-  </script>  
+
 </body>
 </html>

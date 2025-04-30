@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slideshow – Cellmend</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link 
+  href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" 
+  rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- NAVBAR (same as landing page) -->
+  <!-- TOP NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <a href="#" class="logo">
+        <span class="logo-cell">cell</span><span class="logo-mend">mend</span>
+        <span class="logo-subtitle">
+          <span class="dash">-------</span>
+          <span class="tech">T E C H N O L O G I E S</span>
+          <span class="dash">-------</span>
+        </span>
+      </a>
+    </div>    
+    <ul class="navbar__links">
+      <li><a href="#">Home</a></li>
+      <li><a href="../../pages/shop/index.html">Shop</a></li>
+      <li><a href="../../pages/about-us/index.html">About Us</a></li>
+      <li><a href="../../pages/status/index.html">Status</a></li>
+      <li><a href="../../pages/cart/index.html">Cart</a></li>
+      <li><a href="../../pages/contact/index.html">Contact</a></li>
+      <li><a href="../../pages/blog/index.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero__content">
+      <h1>Follow our journey.</h1>
+      <p>Stay up to date with our process. Join us in our mission to improve the way you treat your skin.</p>
+    </div>
+    <!-- Hero bottle image (replace src with your image) -->
+    <div class="hero__image">
+      <!-- 1️⃣ Gradient, absolutely positioned -->
+      <img
+      src="../../images/shapes/gradient.png"
+      alt="Gradient design"
+      class="hero__gradient__others"
+      style="width:300px; height: 100px;;"
+      draggable="false"
+      />    
+    </div>    
+  </header>
+  <div class="milestones-header">
+    <h3>See some of our milestones.</h3>
+  </div>
+  <!-- SLIDESHOW CONTAINER -->
+  <main class="slider-wrapper" data-aos="fade-up" data-aos-delay="1000">
+    <div class="slider">
+      <div class="slide active"><img src="../../images/slide-show/porcine-trials.png" alt="Slide 1"></div>
+      <div class="slide"><img src="../../images/slide-show/mice-trials.png" alt="Slide 2"></div>
+      <div class="slide"><img src="../../images/slide-show/bioluminiscence.png" alt="Slide 3"></div>
+      <div class="slide"><img src="../../images/slide-show/bioluminiscence-explanation.png" alt="Slide 4"></div>
+      <div class="slide"><img src="../../images/slide-show/competition.png" alt="Slide 5"></div>
+      <!-- add more .slide blocks up to however many you need -->
+    </div>
+
+    <div class="slider-progress">
+      <div class="slider-progress-bar"></div>
+    </div>
+  </main>
+
+  <!-- ↓ insert this progress bar ↓ -->
+  <div class="progress-container">
+    <div class="progress-track">
+      <!-- fill to current progress -->
+      <div class="progress-fill" style="width: 66.66%;"></div>
+
+      <!-- current‐step circle -->
+      <div class="progress-current" style="left: 66.66%;"></div>
+
+      <!-- stage markers -->
+      <div class="stage" style="left: 0%;">
+        <span class="stage-label top">Stage 1</span>
+      </div>
+      <div class="stage" style="left: 33.33%;">
+        <span class="stage-label bottom">Stage 2</span>
+      </div>
+      <div class="stage" style="left: 66.66%;">
+        <span class="stage-label top">Stage 3</span>
+      </div>
+      <div class="stage" style="left: 100%;">
+        <span class="stage-label bottom">Stage 4</span>
+      </div>
+    </div>
+  </div>  
+
+  <!-- FOOTER (same as your other pages) -->
+  <footer class="footer">&copy; 2025 Cellmend. All rights reserved.</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 600,    // how long the animation runs
+      once: false,      // ← allow animation every time you scroll into view
+      mirror: true      // ← animate elements out when scrolling past (optional)
+    });
+  </script>  
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider-wrapper');
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          slider.classList.add('visible');
+          io.disconnect();   // stop observing once it’s in view
+        }
+      },
+      { threshold: 0.1 }      // fire when 10% of it is visible
+    );
+    io.observe(slider);
+  });
+  </script>
+  
+</body>
+</html>
