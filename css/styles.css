@@ -1019,12 +1019,7 @@ body {
     flex: 0 0 auto !important;
     display: inline-block !important;
   }
-  .header-wrapper .gradient-layer {
-    /* narrower & a bit taller to cover the smaller viewport */
-    width: 200vw !important;
-    height: 30vw !important;
-  }
-    .hero__image {
+  .hero__image {
     flex: 1 1 300px;
     display: flex;
     justify-content: center;
@@ -1114,12 +1109,7 @@ body {
     flex: 0 0 auto !important;
     display: inline-block !important;
   }
-  .header-wrapper .gradient-layer {
-    /* even narrower and taller for phones */
-    width: 300vw !important;
-    height: 500vw !important;
-  }
-    .hero__image {
+  .hero__image {
     flex: 1 1 300px;
     display: flex;
     justify-content: center;
