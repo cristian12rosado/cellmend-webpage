@@ -60,18 +60,29 @@
   <!-- SLIDESHOW CONTAINER -->
   <main class="slider-wrapper" data-aos="fade-up" data-aos-delay="1000">
     <div class="slider">
-      <div class="slide active"><img src="../../images/slide-show/porcine-trials.png" alt="Slide 1"></div>
-      <div class="slide"><img src="../../images/slide-show/mice-trials.png" alt="Slide 2"></div>
-      <div class="slide"><img src="../../images/slide-show/bioluminiscence.png" alt="Slide 3"></div>
-      <div class="slide"><img src="../../images/slide-show/bioluminiscence-explanation.png" alt="Slide 4"></div>
-      <div class="slide"><img src="../../images/slide-show/competition.png" alt="Slide 5"></div>
-      <!-- add more .slide blocks up to however many you need -->
+      <!-- only the first slide has active -->
+      <div class="slide active">
+        <img src="../../images/slide-show/porcine-trials.png" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="../../images/slide-show/mice-trials.png" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="../../images/slide-show/bioluminiscence.png" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="../../images/slide-show/bioluminiscence-explanation.png" alt="Slide 4">
+      </div>
+      <div class="slide">
+        <img src="../../images/slide-show/competition.png" alt="Slide 5">
+      </div>
     </div>
-
+  
     <div class="slider-progress">
       <div class="slider-progress-bar"></div>
     </div>
   </main>
+  
 
   <!-- ↓ insert this progress bar ↓ -->
   <div class="progress-container">
@@ -112,19 +123,22 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.querySelector('.slider-wrapper');
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          slider.classList.add('visible');
-          io.disconnect();   // stop observing once it’s in view
-        }
-      },
-      { threshold: 0.1 }      // fire when 10% of it is visible
-    );
-    io.observe(slider);
+    const slides = document.querySelectorAll('.slider .slide');
+    let current = 0;
+
+    function goToSlide(idx) {
+      slides.forEach((slide, i) =>
+        slide.classList.toggle('active', i === idx)
+      );
+    }
+
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      goToSlide(current);
+    }, 5000); // swap every 5s
   });
-  </script>
+</script>
+
   
 </body>
 </html>
