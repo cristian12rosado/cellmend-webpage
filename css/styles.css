@@ -432,7 +432,7 @@ body {
 /* Place this at the very bottom of styles.css */
 .hero__image > img.hero__gradient {
   width: 105vw !important;   /* your desired width */
-  height: 44vw !important;   /* let the height adjust */
+  height: 33vw !important;   /* let the height adjust */
   max-width: none !important;/* kill any implicit caps */
   overflow: hidden;
 }
