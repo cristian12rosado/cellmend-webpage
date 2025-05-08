@@ -434,6 +434,7 @@ body {
   width: 105vw !important;   /* your desired width */
   height: 44vw !important;   /* let the height adjust */
   max-width: none !important;/* kill any implicit caps */
+  overflow: hidden;
 }
 
 .hero__gradient {
