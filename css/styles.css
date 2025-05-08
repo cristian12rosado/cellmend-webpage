@@ -738,7 +738,7 @@ body {
 .slider {
   position: relative;
   width: 100%;
-  height: 0;
+  height: 30vw;
   padding-top: 35%; /* 16:9 aspect ratio, tweak as desired */
 }
 
@@ -809,6 +809,7 @@ body {
   max-width: 1000px;    /* same as your slider */
   margin: 0 auto 3rem;  /* no top margin needed now, bottom for breathing room */
   margin-bottom: 10rem;
+  margin-left: 15rem;
 }
 
 .progress-track {
@@ -865,12 +866,12 @@ body {
 /* alternate label positions */
 .stage-label.top {
   bottom: 100%;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
 }
 
 .stage-label.bottom {
   top: 100%;
-  margin-top: 0.4rem;
+  margin-top: 1.5rem;
 }
 
 /* Logo: two-line, multi-style */
@@ -1137,7 +1138,7 @@ body {
   /* Place this at the very bottom of styles.css */
   .hero__image > img.hero__gradient {
     width: 105vw !important;   /* your desired width */
-    height: 30vh !important;   /* let the height adjust */
+    height: 200vw !important;   /* let the height adjust */
     max-width: none !important;/* kill any implicit caps */
   }
 
@@ -1350,6 +1351,8 @@ button:focus {
   border-radius: 0.5rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   text-align: center;
+  width: 60vw;
+  margin-left: 15rem;
 }
 
 .feature-item .feature-icon {
